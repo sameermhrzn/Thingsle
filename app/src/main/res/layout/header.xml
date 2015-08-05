@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="vertical"
-    android:background="@drawable/background_coffee"
-    android:id="@+id/header">
+    android:background="@drawable/background_coffee">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,12 +21,12 @@
             android:layout_marginLeft="45dp"
             android:text="Greetings!!"
             />
-        <SearchView
+       <!-- <SearchView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/sv_search"
             android:layout_marginTop="20dp"
-            android:background="#CCFFCDD2"></SearchView>
+            android:background="#CCFFCDD2"></SearchView>-->
     </LinearLayout>
 
 
