@@ -35,7 +35,7 @@
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/flipper_basantapur" />
+                android:src="@drawable/swoyambhunath" />
 
 
             <TextView
@@ -53,29 +53,13 @@
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/boudha" />
+                android:src="@drawable/swoyambhunath" />
 
             <TextView
                 style="@style/ImageTitle"
                 android:text="Boudhanath"/>
         </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
 
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/patan" />
-
-
-            <TextView
-                style="@style/ImageTitle"
-                android:text="Patan"/>
-        </RelativeLayout>
 
 </ViewFlipper>
     <ImageView

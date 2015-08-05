@@ -22,7 +22,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends NavDrawer {
 
     private static final int SWIPE_MIN_DISTANCE = 120;
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
@@ -38,19 +38,23 @@ public class MainActivity extends ActionBarActivity {
     LinearLayout header;
 
 
+
    /* int image_flipper[] = {
             R.drawable.icon_comment, R.drawable.icon_favorites, R.drawable.icon_login, R.drawable.icon_pin};
    ViewFlipper viewFlipper;*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
 
+        getLayoutInflater().inflate(R.layout.activity_main, frameLayout);
         // for header
         header = (LinearLayout)findViewById(R.id.header);
 
         textView = (TextView) findViewById(R.id.tv_greeting);
-        searchView = (SearchView) findViewById(R.id.sv_search);
+       searchView = (SearchView) findViewById(R.id.sv_search);
+
+
 
       //for view flipper
         mContext = this;
@@ -69,7 +73,8 @@ public class MainActivity extends ActionBarActivity {
             setFlipperImage(image_flipper[i]);
         }
 */
-    //For Map
+
+        //For Map
         try {
             if (googleMap == null) {
                 googleMap = ((MapFragment) getFragmentManager().
@@ -82,28 +87,6 @@ public class MainActivity extends ActionBarActivity {
         catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
  /*   public void setFlipperImage(int res){
