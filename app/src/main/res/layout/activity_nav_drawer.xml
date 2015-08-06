@@ -7,6 +7,8 @@
     tools:context=".MainActivity"
     >
 
+    <!--
+    Used when Fragment is used. "replace" the layout with a Fragment class in Fragmentmanager-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

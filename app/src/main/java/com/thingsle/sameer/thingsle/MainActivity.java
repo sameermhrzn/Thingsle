@@ -22,25 +22,25 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends NavDrawer {
 
     private ViewFlipper mViewFlipper;
 
     static final LatLng TutorialsPoint = new LatLng(27.7152 , 85.3102);
     private GoogleMap googleMap;
 
-    TextView textView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        /**
+         *  We will not use setContentView in this activty
+         *  Rather than we will use layout inflater to add view in FrameLayout of our base activity layout*/
+        //setContentView(R.layout.activity_main);
 
-       /* // for header
-        textView = (TextView) findViewById(R.id.tv_greeting);
-        textView.setText("GoodMorning");*/
-
-        //searchView = (SearchView) findViewById(R.id.sv_search);
+        /**
+         * Adding our layout to parent class frame layout.
+         */
+        getLayoutInflater().inflate(R.layout.activity_main, frameLayout);
 
         //for view flipper
         mViewFlipper = (ViewFlipper) this.findViewById(R.id.ViewFlipper);
@@ -65,23 +65,6 @@ public class MainActivity extends ActionBarActivity {
         catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }
 

@@ -2,6 +2,7 @@ package com.thingsle.sameer.thingsle;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -28,18 +30,16 @@ public class NavDrawer extends ActionBarActivity {
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
     CustomDrawerAdapter adapter;
+    protected FrameLayout frameLayout;
 
-    List<Drawer_Item> dataList;
-
-
-
+    List<Drawer_Item> dataList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_drawer);
 
-        dataList = new ArrayList<Drawer_Item>();
+        frameLayout = (FrameLayout)findViewById(R.id.frame_layout);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.navigation_items);
@@ -52,9 +52,6 @@ public class NavDrawer extends ActionBarActivity {
         dataList.add(new Drawer_Item(R.drawable.icon_favorites,"Favorites"));
         dataList.add(new Drawer_Item( R.drawable.icon_suggestions,"Suggestions"));
         dataList.add(new Drawer_Item(R.drawable.icon_login,"Login/Logout"));
-
-
-
 
         adapter =  new CustomDrawerAdapter(this,R.layout.custom_drawer_item,dataList);
         mDrawerList.setAdapter(adapter);
@@ -70,27 +67,17 @@ public class NavDrawer extends ActionBarActivity {
 
             public void onDrawerClosed(View view) {
                 getSupportActionBar().setTitle(mTitle);
-                invalidateOptionsMenu(); // creates call to
-                // onPrepareOptionsMenu()
+                invalidateOptionsMenu();
             }
 
             public void onDrawerOpened(View drawerView) {
                 getSupportActionBar().setTitle(mDrawerTitle);
-                invalidateOptionsMenu(); // creates call to
-                // onPrepareOptionsMenu()
+                invalidateOptionsMenu();
             }
         };
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-
-     /*  if (savedInstanceState == null) {
-            selectFragment(0);
-
-        }*/
-
     }
-
-
 
     @Override
     public void setTitle(CharSequence title) {
@@ -130,6 +117,39 @@ public class NavDrawer extends ActionBarActivity {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
+    public void selectActivity(int position) {
+        switch (position) {
+            case 0:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+            case 1:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+            case 2:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+            case 3:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+            case 4:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private class DrawerItemClickListener implements ListView.OnItemClickListener{
+
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            selectActivity(position);
+        }
+    }
+
+/*  When we use fragment use this method
     public void selectFragment(int position){
 
         Fragment fragment = new Fragment();
@@ -185,17 +205,7 @@ public class NavDrawer extends ActionBarActivity {
         mDrawerList.setItemChecked(position, true);
         setTitle(dataList.get(position).getTvItemName());
         mDrawerLayout.closeDrawer(mDrawerList);
-
-    }
-
-    private class DrawerItemClickListener implements ListView.OnItemClickListener{
-
-
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectFragment(position);
-        }
-    }
+    }*/
 }
 
 

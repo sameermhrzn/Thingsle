@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/sv_search"
             android:layout_marginTop="20dp"
-            android:background="#CCFFCDD2"></SearchView>
+            android:background="#CCFFCDD2"/>
     </LinearLayout>
 
 
