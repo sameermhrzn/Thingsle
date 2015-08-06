@@ -2,6 +2,7 @@ package com.thingsle.sameer.thingsle;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -135,13 +136,17 @@ public class NavDrawer extends ActionBarActivity {
 
         switch (position) {
             case 0:
+
+                Intent intent = new Intent(NavDrawer.this,MainActivity.class);
+                startActivity(intent);
+                /*
                 Toast.makeText(this, dataList.get(position).getTvItemName(), Toast.LENGTH_SHORT).show();
                 fragment = new FragmentOne();
                 args.putString(FragmentOne.Item_name, dataList.get(position)
                         .getTvItemName());
                 args.putInt(FragmentOne.Image_resourceId, dataList.get(position)
                         .getIvIcon());
-
+*/
                 break;
             case 1:
                 fragment = new FragmentOne();
