@@ -1,7 +1,5 @@
-package com.thingsle.sameer.thingsle;
+package com.thingsle.sameer.thingsle.app;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -13,15 +11,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.thingsle.sameer.thingsle.adapter.CustomDrawerAdapter;
+import com.thingsle.sameer.thingsle.data.Drawer_Item;
+import com.thingsle.sameer.thingsle.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NavDrawer extends ActionBarActivity {
+public class NavDrawerActivity extends ActionBarActivity {
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -53,7 +53,7 @@ public class NavDrawer extends ActionBarActivity {
         dataList.add(new Drawer_Item( R.drawable.icon_suggestions,"Suggestions"));
         dataList.add(new Drawer_Item(R.drawable.icon_login,"Login/Logout"));
 
-        adapter =  new CustomDrawerAdapter(this,R.layout.custom_drawer_item,dataList);
+        adapter =  new CustomDrawerAdapter(this,R.layout.activity_drawer_item,dataList);
         mDrawerList.setAdapter(adapter);
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 

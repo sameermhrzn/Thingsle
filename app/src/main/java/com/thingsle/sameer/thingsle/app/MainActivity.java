@@ -1,19 +1,8 @@
-package com.thingsle.sameer.thingsle;
+package com.thingsle.sameer.thingsle.app;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
-import android.view.GestureDetector;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -21,8 +10,9 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.thingsle.sameer.thingsle.R;
 
-public class MainActivity extends NavDrawer {
+public class MainActivity extends NavDrawerActivity {
 
     private ViewFlipper mViewFlipper;
 

@@ -1,4 +1,4 @@
-package com.thingsle.sameer.thingsle;
+package com.thingsle.sameer.thingsle.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.thingsle.sameer.thingsle.R;
 
 /**
  * Created by Sameer on 8/2/2015.

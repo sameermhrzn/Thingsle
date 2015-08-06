@@ -1,4 +1,4 @@
-package com.thingsle.sameer.thingsle;
+package com.thingsle.sameer.thingsle.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.thingsle.sameer.thingsle.data.Drawer_Item;
+import com.thingsle.sameer.thingsle.R;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.thingsle.sameer.thingsle;
+package com.thingsle.sameer.thingsle.data;
 
 import android.widget.ImageView;
 import android.widget.TextView;

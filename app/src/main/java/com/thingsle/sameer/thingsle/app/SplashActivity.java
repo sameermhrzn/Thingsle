@@ -1,9 +1,11 @@
-package com.thingsle.sameer.thingsle;
+package com.thingsle.sameer.thingsle.app;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
+
+import com.thingsle.sameer.thingsle.R;
 
 
 public class SplashActivity extends ActionBarActivity {
@@ -19,6 +21,6 @@ public class SplashActivity extends ActionBarActivity {
 
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
             }
-        }, 5000);
+        }, 2000);
     }
 }
