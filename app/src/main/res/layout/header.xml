@@ -12,6 +12,7 @@
         android:layout_marginLeft="35dp"
         android:layout_marginTop="35dp"
         android:layout_marginRight="25dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,12 +22,12 @@
             android:layout_marginLeft="45dp"
             android:text="Greetings!!"
             />
-       <!-- <SearchView
+        <SearchView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/sv_search"
             android:layout_marginTop="20dp"
-            android:background="#CCFFCDD2"></SearchView>-->
+            android:background="#CCFFCDD2"></SearchView>
     </LinearLayout>
 
 
