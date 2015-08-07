@@ -1,17 +1,11 @@
 package com.thingsle.sameer.thingsle;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.GestureDetector;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -25,59 +19,51 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends NavDrawer {
 
-    private static final int SWIPE_MIN_DISTANCE = 120;
-    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
     private ViewFlipper mViewFlipper;
-    private Context mContext;
-    private final GestureDetector detector = new GestureDetector(new SwipeGestureDetector());
 
-    static final LatLng Thamel = new LatLng(27.7152 , 85.3102);
+    static final LatLng Thamel = new LatLng(27.7152, 85.3102);
     private GoogleMap googleMap;
 
     TextView textView;
     SearchView searchView;
-    LinearLayout header;
+
 
 
 
    /* int image_flipper[] = {
             R.drawable.icon_comment, R.drawable.icon_favorites, R.drawable.icon_login, R.drawable.icon_pin};
    ViewFlipper viewFlipper;*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
 
-        getLayoutInflater().inflate(R.layout.activity_main, frameLayout);
-        // for header
-        header = (LinearLayout)findViewById(R.id.header);
 
-        textView = (TextView) findViewById(R.id.tv_greeting);
-       searchView = (SearchView) findViewById(R.id.sv_search);
+        getLayoutInflater().inflate(R.layout.activity_main, frameLayout);
+        searchView = (SearchView) findViewById(R.id.sv_search);
 
 
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,SearchActivity.class);
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
                 startActivity(intent);
                 finish();
 
             }
         });
 
-
-
-      //for view flipper
-        mContext = this;
-        mViewFlipper = (ViewFlipper) this.findViewById(R.id.flipper);
+        //for view flipper
+        mViewFlipper = (ViewFlipper) this.findViewById(R.id.ViewFlipper);
         mViewFlipper.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(final View view, final MotionEvent event) {
-                detector.onTouchEvent(event);
+                mViewFlipper.showNext();
                 return true;
             }
         });
+
 
         /* viewFlipper = (ViewFlipper) findViewById(R.id.flipper);
         for(int i=0;i<image_flipper.length;i++){
@@ -97,17 +83,17 @@ public class MainActivity extends NavDrawer {
             googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(LatLng latLng) {
-                    Intent intent = new Intent(MainActivity.this,MapActivity.class);
+                    Intent intent = new Intent(MainActivity.this, MapActivity.class);
                     startActivity(intent);
                     finish();
 
                 }
             });
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
 
 
@@ -119,7 +105,7 @@ public class MainActivity extends NavDrawer {
 
     }*/
 
-    class SwipeGestureDetector extends GestureDetector.SimpleOnGestureListener {
+   /* class SwipeGestureDetector extends GestureDetector.SimpleOnGestureListener {
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             try {
@@ -131,7 +117,7 @@ public class MainActivity extends NavDrawer {
                     return true;
                 } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
                     mViewFlipper.setInAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_in));
-                    mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(mContext,R.anim.right_out));
+                    mViewFlipper.setOutAnimation(AnimationUtils.loadAnimation(mContext, R.anim.right_out));
                     mViewFlipper.showPrevious();
                     return true;
                 }
@@ -141,7 +127,7 @@ public class MainActivity extends NavDrawer {
             }
 
             return false;
-        }
+        }*/
     }
-}
+
 

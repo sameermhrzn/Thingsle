@@ -7,7 +7,7 @@
     android:weightSum="3">
 
     <include layout="@layout/header"
-        android:layout_width="match_parent"
+    android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
@@ -19,10 +19,12 @@
         android:layout_weight="1"
         tools:layout="@layout/fragment_layout" />
 
+
     <include layout="@layout/footer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+
         android:layout_weight="1"/>
 
 
-    </LinearLayout>
+</LinearLayout>
