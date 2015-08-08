@@ -35,6 +35,19 @@
             android:name=".app.NavDrawerActivity"
             android:label="@string/title_activity_nav_drawer" >
         </activity>
+<<<<<<< HEAD
+=======
+
+        <activity
+            android:name=".SearchActivity"
+            android:label="@string/title_activity_search" >
+        </activity>
+        <activity
+            android:name=".MapActivity"
+            android:label="@string/title_activity_map" >
+        </activity>
+
+>>>>>>> 5612b26bb7fba4d858fce36c1d67315d4b29fd78
     </application>
 
 </manifest>
