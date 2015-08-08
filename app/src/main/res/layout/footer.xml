@@ -60,25 +60,9 @@
                 style="@style/ImageTitle"
                 android:text="Boudhanath"/>
         </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_gravity="center"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/swoyambhunath" />
 
 
-            <TextView
-                style="@style/ImageTitle"
-                android:text="Patan"/>
-        </RelativeLayout>
-
-    </ViewFlipper>
+</ViewFlipper>
     <ImageView
         android:id="@+id/swipe_left"
         android:layout_width="wrap_content"
