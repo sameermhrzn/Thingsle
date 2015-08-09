@@ -211,7 +211,6 @@ public class NavDrawerActivity extends ActionBarActivity {
         setTitle(dataList.get(position).getTvItemName());
         mDrawerLayout.closeDrawer(mDrawerList);
     }*/
-
 }
 
 

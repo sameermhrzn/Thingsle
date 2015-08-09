@@ -33,7 +33,6 @@ public class MainActivity extends NavDrawerActivity {
          * Adding our layout to parent class frame layout.
          */
         getLayoutInflater().inflate(R.layout.activity_main, frameLayout);
-
         searchView = (SearchView) findViewById(R.id.sv_search);
         searchView.setOnClickListener(new View.OnClickListener() {
             @Override
