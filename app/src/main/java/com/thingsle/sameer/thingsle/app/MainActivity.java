@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.ViewFlipper;
 
@@ -13,6 +15,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.thingsle.sameer.thingsle.R;
+import com.thingsle.sameer.thingsle.data.DatabaseHandler;
+
+import java.util.ArrayList;
 
 public class MainActivity extends NavDrawerActivity {
     private ViewFlipper mViewFlipper;
@@ -20,6 +25,8 @@ public class MainActivity extends NavDrawerActivity {
     static final LatLng Thamel = new LatLng(27.7152, 85.3102);
     private GoogleMap googleMap;
     SearchView searchView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +82,8 @@ public class MainActivity extends NavDrawerActivity {
             e.printStackTrace();
         }
     }
+
+
  /*   public void setFlipperImage(int res){
         Log.i("Flipper",res+"");
         ImageView imageView = new ImageView(getApplicationContext());
