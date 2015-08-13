@@ -45,7 +45,7 @@ public class ListCitiesAdapter extends BaseAdapter {
         View v = convertView;
         ViewHolder holder;
         if(v == null) {
-            v = mInflater.inflate(R.layout.list_item_emloyee, parent, false);
+            v = mInflater.inflate(R.layout.list_item_city, parent, false);
             holder = new ViewHolder();
             holder.txtCityName = (TextView) v.findViewById(R.id.txt_employee_name);
             holder.txtLongitude = (TextView) v.findViewById(R.id.txt_company_name);

@@ -104,7 +104,7 @@ public class AddCity extends Activity implements OnClickListener, OnItemSelected
                     finish();
                 }
                 else {
-                    Toast.makeText(this, R.string.empty_fields_message, Toast.LENGTH_LONG).show();
+                    Toast.makeText(this,"One or more fields are empty", Toast.LENGTH_LONG).show();
                 }
                 break;
 

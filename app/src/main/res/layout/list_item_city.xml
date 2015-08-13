@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txt_city_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="name of City"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_longitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_city_name"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="Longitude"
+        android:textAppearance="?android:attr/textAppearance"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/txt_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_longitude"
+        android:layout_marginTop="4dp"
+        android:autoLink="web"
+        android:linksClickable="false"
+        android:text="Latitude"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/txt_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_latitude"
+        android:layout_marginTop="4dp"
+        android:autoLink="phone"
+        android:linksClickable="false"
+        android:text="Rating"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/txt_things_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_rating"
+        android:layout_marginTop="4dp"
+        android:text="Things to do"
+        android:textColor="@android:color/darker_gray" />
+
+
+
+</RelativeLayout>

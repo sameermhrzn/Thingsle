@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 
+import com.thingsle.sameer.thingsle.R;
 import com.thingsle.sameer.thingsle.data.CountrieData;
 
 public class SpinnerCountriesAdapter extends BaseAdapter {

@@ -72,9 +72,9 @@ public class ListCitiesActivity extends Activity implements OnItemLongClickListe
     }
 
     private void initViews() {
-        this.mListViewCities = (ListView) findViewById(R.id.list_employees);
-        this.mTxtEmptyListCities = (TextView) findViewById(R.id.txt_empty_list_employees);
-        this.mBtnAddCity = (ImageButton) findViewById(R.id.btn_add_employee);
+        this.mListViewCities = (ListView) findViewById(R.id.list_cities);
+        this.mTxtEmptyListCities = (TextView) findViewById(R.id.txt_empty_list_cities);
+        this.mBtnAddCity = (ImageButton) findViewById(R.id.btn_add_city);
         this.mListViewCities.setOnItemClickListener(this);
         this.mListViewCities.setOnItemLongClickListener(this);
         this.mBtnAddCity.setOnClickListener(this);
@@ -83,7 +83,7 @@ public class ListCitiesActivity extends Activity implements OnItemLongClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_add_employee:
+            case R.id.btn_add_city:
                 Intent intent = new Intent(this, AddCity.class);
                 startActivityForResult(intent, REQUEST_CODE_ADD_CITY);
                 break;
