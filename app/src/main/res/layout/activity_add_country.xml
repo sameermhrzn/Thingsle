@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    tools:context="com.thingsle.sameer.thingsle.app.AddCountry" >
+
+    <EditText
+        android:id="@+id/txt_country_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Country Name"
+        android:layout_marginTop="24dp"
+        android:inputType="text"
+        android:textAppearance="?android:attr/textAppearance"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/txt_latitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_country_name"
+        android:layout_marginTop="8dp"
+        android:hint="Latitude"
+        android:inputType="text"
+        android:lines="2"
+        android:maxLines="2"
+        android:textAppearance="?android:attr/textAppearance"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/txt_longitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_latitude"
+        android:layout_marginTop="8dp"
+        android:hint="Longitude"
+        android:inputType="text"
+        android:textAppearance="?android:attr/textAppearance"
+        android:textColor="@android:color/black" />
+
+
+    
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_longitude"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:paddingBottom="2dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="2dp"
+        android:text="Add Country"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

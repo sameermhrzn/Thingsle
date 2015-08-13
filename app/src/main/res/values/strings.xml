@@ -13,6 +13,10 @@
         <string name="title_activity_fragment">Fragment</string>
         <string name="title_activity_search">SearchActivity</string>
         <string name="title_activity_map">MapActivity</string>
+        <string name="title_activity_list_cities">ListCItiesActivity</string>
+        <string name="title_activity_list_cities_adapter">ListCitiesAdapter</string>
+        <string name="title_activity_add_city">AddCity</string>
+    <string name="select_a_country"> Select a country</string>
 
 
 </resources>
