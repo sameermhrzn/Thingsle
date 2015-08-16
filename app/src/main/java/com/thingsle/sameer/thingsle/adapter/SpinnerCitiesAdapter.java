@@ -12,27 +12,29 @@ import com.thingsle.sameer.thingsle.data.CitiesData;
 
 import java.util.List;
 
+/**
+ * Created by Sameer on 8/14/2015.
+ */
+public class SpinnerCitiesAdapter extends BaseAdapter {
 
-public class ListCitiesAdapter extends BaseAdapter {
-
-    public static final String TAG = "ListCitiesAdapter";
+    public static final String TAG = "SpinnerPlacesAdapter";
 
     private List<CitiesData> mItems;
     private LayoutInflater mInflater;
 
-    public ListCitiesAdapter(Context context, List<CitiesData> listCities) {
+    public SpinnerCitiesAdapter(Context context, List<CitiesData> listCities) {
         this.setItems(listCities);
         this.mInflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return (getItems() != null && !getItems().isEmpty()) ? getItems().size() : 0 ;
+        return (getItems() != null && !getItems().isEmpty()) ? getItems().size() : 0;
     }
 
     @Override
     public CitiesData getItem(int position) {
-        return (getItems() != null && !getItems().isEmpty()) ? getItems().get(position) : null ;
+        return (getItems() != null && !getItems().isEmpty()) ? getItems().get(position) : null;
     }
 
     @Override
@@ -44,30 +46,28 @@ public class ListCitiesAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = convertView;
         ViewHolder holder;
-        if(v == null) {
-            v = mInflater.inflate(R.layout.list_item_city, parent, false);
+        if (v == null) {
+            v = mInflater.inflate(R.layout.spinner_item_city, parent, false);
             holder = new ViewHolder();
             holder.txtCityName = (TextView) v.findViewById(R.id.txt_city_name);
             holder.txtLongitude = (TextView) v.findViewById(R.id.txt_longitude);
             holder.txtLatitude = (TextView) v.findViewById(R.id.txt_latitude);
             holder.txtRating = (TextView) v.findViewById(R.id.txt_rating);
             holder.txtThingsTo = (TextView) v.findViewById(R.id.txt_things_to);
-            holder.txtCountryName = (TextView) v.findViewById(R.id.txt_country_name);
+
             v.setTag(holder);
-        }
-        else {
+        } else {
             holder = (ViewHolder) v.getTag();
         }
 
         // fill row data
         CitiesData currentItem = getItem(position);
-        if(currentItem != null) {
+        if (currentItem != null) {
             holder.txtCityName.setText(currentItem.getName());
-            holder.txtLongitude.setText(String.valueOf(currentItem.getLongi())+" °");
-            holder.txtLatitude.setText(String.valueOf(currentItem.getLat())+" °");
+            holder.txtLongitude.setText(String.valueOf(currentItem.getLongi()) + " °");
+            holder.txtLatitude.setText(String.valueOf(currentItem.getLat()) + " °");
             holder.txtRating.setText(currentItem.getRating());
             holder.txtThingsTo.setText(currentItem.getThingsTO());
-            holder.txtCountryName.setText(currentItem.getCountrieData().getName());
 
         }
 
@@ -88,7 +88,8 @@ public class ListCitiesAdapter extends BaseAdapter {
         TextView txtLatitude;
         TextView txtRating;
         TextView txtThingsTo;
-        TextView txtCountryName;
-    }
 
+
+    }
 }
+

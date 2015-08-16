@@ -8,20 +8,22 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.thingsle.sameer.thingsle.R;
-import com.thingsle.sameer.thingsle.data.CitiesData;
+import com.thingsle.sameer.thingsle.data.PlacesData;
 
 import java.util.List;
 
+/**
+ * Created by Sameer on 8/13/2015.
+ */
+public class ListPlacesAdapter  extends BaseAdapter {
 
-public class ListCitiesAdapter extends BaseAdapter {
+    public static final String TAG = "ListPlacesAdapter";
 
-    public static final String TAG = "ListCitiesAdapter";
-
-    private List<CitiesData> mItems;
+    private List<PlacesData> mItems;
     private LayoutInflater mInflater;
 
-    public ListCitiesAdapter(Context context, List<CitiesData> listCities) {
-        this.setItems(listCities);
+    public ListPlacesAdapter(Context context, List<PlacesData> listPlaces) {
+        this.setItems(listPlaces);
         this.mInflater = LayoutInflater.from(context);
     }
 
@@ -31,13 +33,13 @@ public class ListCitiesAdapter extends BaseAdapter {
     }
 
     @Override
-    public CitiesData getItem(int position) {
+    public PlacesData getItem(int position) {
         return (getItems() != null && !getItems().isEmpty()) ? getItems().get(position) : null ;
     }
 
     @Override
     public long getItemId(int position) {
-        return (getItems() != null && !getItems().isEmpty()) ? getItems().get(position).getCity_id() : position;
+        return (getItems() != null && !getItems().isEmpty()) ? getItems().get(position).getPlace_id(): position;
     }
 
     @Override
@@ -45,14 +47,16 @@ public class ListCitiesAdapter extends BaseAdapter {
         View v = convertView;
         ViewHolder holder;
         if(v == null) {
-            v = mInflater.inflate(R.layout.list_item_city, parent, false);
+            v = mInflater.inflate(R.layout.list_item_places, parent, false);
             holder = new ViewHolder();
-            holder.txtCityName = (TextView) v.findViewById(R.id.txt_city_name);
+            holder.txtCityName = (TextView) v.findViewById(R.id.txt_place_name);
             holder.txtLongitude = (TextView) v.findViewById(R.id.txt_longitude);
             holder.txtLatitude = (TextView) v.findViewById(R.id.txt_latitude);
             holder.txtRating = (TextView) v.findViewById(R.id.txt_rating);
-            holder.txtThingsTo = (TextView) v.findViewById(R.id.txt_things_to);
-            holder.txtCountryName = (TextView) v.findViewById(R.id.txt_country_name);
+            holder.txtDescription = (TextView) v.findViewById(R.id.txt_description);
+            holder.txtDetails = (TextView) v.findViewById(R.id.txt_details);
+            holder.txtStatus = (TextView) v.findViewById(R.id.txt_status);
+            holder.txtCityName = (TextView) v.findViewById(R.id.txt_city_name);
             v.setTag(holder);
         }
         else {
@@ -60,35 +64,40 @@ public class ListCitiesAdapter extends BaseAdapter {
         }
 
         // fill row data
-        CitiesData currentItem = getItem(position);
+        PlacesData currentItem = getItem(position);
         if(currentItem != null) {
-            holder.txtCityName.setText(currentItem.getName());
+            holder.txtPlaceName.setText(currentItem.getName());
             holder.txtLongitude.setText(String.valueOf(currentItem.getLongi())+" °");
             holder.txtLatitude.setText(String.valueOf(currentItem.getLat())+" °");
             holder.txtRating.setText(currentItem.getRating());
-            holder.txtThingsTo.setText(currentItem.getThingsTO());
-            holder.txtCountryName.setText(currentItem.getCountrieData().getName());
+            holder.txtDescription.setText(currentItem.getDescription());
+            holder.txtDetails.setText(currentItem.getDetails());
+            holder.txtStatus.setText(String.valueOf(currentItem.getStatus()));
+            holder.txtCityName.setText(currentItem.getCitiesData().getName());
 
         }
 
         return v;
     }
 
-    public List<CitiesData> getItems() {
+    public List<PlacesData> getItems() {
         return mItems;
     }
 
-    public void setItems(List<CitiesData> mItems) {
+    public void setItems(List<PlacesData> mItems) {
         this.mItems = mItems;
     }
 
     class ViewHolder {
-        TextView txtCityName;
+        TextView txtPlaceName;
         TextView txtLongitude;
         TextView txtLatitude;
         TextView txtRating;
-        TextView txtThingsTo;
-        TextView txtCountryName;
+        TextView txtDescription;
+        TextView txtDetails;
+        TextView txtStatus;
+        TextView txtCityName;
     }
 
 }
+

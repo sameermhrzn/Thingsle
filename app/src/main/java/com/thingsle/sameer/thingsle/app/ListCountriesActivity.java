@@ -1,8 +1,5 @@
 package com.thingsle.sameer.thingsle.app;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -23,6 +20,9 @@ import com.thingsle.sameer.thingsle.R;
 import com.thingsle.sameer.thingsle.adapter.ListCountriesAdapter;
 import com.thingsle.sameer.thingsle.data.CountrieData;
 import com.thingsle.sameer.thingsle.data.CountryCRUD;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Sameer on 8/13/2015.
@@ -53,11 +53,10 @@ public class ListCountriesActivity extends Activity implements OnItemLongClickLi
         // fill the listView
         mCountryCrud = new CountryCRUD(this);
         mListCountries = mCountryCrud.getAllCountries();
-        if(mListCountries != null && !mListCountries.isEmpty()) {
+        if (mListCountries != null && !mListCountries.isEmpty()) {
             mAdapter = new ListCountriesAdapter(this, mListCountries);
             mListviewCountries.setAdapter(mAdapter);
-        }
-        else {
+        } else {
             mTxtEmptyListCountries.setVisibility(View.VISIBLE);
             mListviewCountries.setVisibility(View.GONE);
         }
@@ -87,34 +86,32 @@ public class ListCountriesActivity extends Activity implements OnItemLongClickLi
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == REQUEST_CODE_ADD_COUNTRY) {
-            if(resultCode == RESULT_OK) {
+        if (requestCode == REQUEST_CODE_ADD_COUNTRY) {
+            if (resultCode == RESULT_OK) {
                 // add the added country to the listCountry and refresh the listView
-                if(data != null) {
+                if (data != null) {
                     CountrieData createdCountry = (CountrieData) data.getSerializableExtra(EXTRA_ADDED_COUNTRY);
-                    if(createdCountry != null) {
-                        if(mListCountries == null)
+                    if (createdCountry != null) {
+                        if (mListCountries == null)
                             mListCountries = new ArrayList<CountrieData>();
                         mListCountries.add(createdCountry);
 
-                        if(mListviewCountries.getVisibility() != View.VISIBLE) {
+                        if (mListviewCountries.getVisibility() != View.VISIBLE) {
                             mListviewCountries.setVisibility(View.VISIBLE);
                             mTxtEmptyListCountries.setVisibility(View.GONE);
                         }
 
-                        if(mAdapter == null) {
+                        if (mAdapter == null) {
                             mAdapter = new ListCountriesAdapter(this, mListCountries);
                             mListviewCountries.setAdapter(mAdapter);
-                        }
-                        else {
+                        } else {
                             mAdapter.setItems(mListCountries);
                             mAdapter.notifyDataSetChanged();
                         }
                     }
                 }
             }
-        }
-        else
+        } else
             super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -127,7 +124,7 @@ public class ListCountriesActivity extends Activity implements OnItemLongClickLi
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         CountrieData clickedCountry = mAdapter.getItem(position);
-        Log.d(TAG, "clickedItem : "+clickedCountry.getName());
+        Log.d(TAG, "clickedItem : " + clickedCountry.getName());
        /* Intent intent = new Intent(this, ListCitiesActivity.class);
         intent.putExtra(ListCitiesActivity.EXTRA_SELECTED_COUNTRY_ID, clickedCountry.getId());
         startActivity(intent);*/
@@ -136,7 +133,7 @@ public class ListCountriesActivity extends Activity implements OnItemLongClickLi
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         CountrieData clickedCountry = mAdapter.getItem(position);
-        Log.d(TAG, "longClickedItem : "+clickedCountry.getName());
+        Log.d(TAG, "longClickedItem : " + clickedCountry.getName());
         showDeleteDialogConfirmation(clickedCountry);
         return true;
     }
@@ -145,7 +142,7 @@ public class ListCountriesActivity extends Activity implements OnItemLongClickLi
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
         alertDialogBuilder.setTitle("Delete");
-        alertDialogBuilder.setMessage("Are you sure you want to delete the \""+clickedCountry.getName()+"\" country ?");
+        alertDialogBuilder.setMessage("Are you sure you want to delete the \"" + clickedCountry.getName() + "\" country ?");
 
         // set positive button YES message
         alertDialogBuilder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -153,12 +150,12 @@ public class ListCountriesActivity extends Activity implements OnItemLongClickLi
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // delete the company and refresh the list
-                if(mCountryCrud != null) {
+                if (mCountryCrud != null) {
                     mCountryCrud.deleteCountry(clickedCountry);
                     mListCountries.remove(clickedCountry);
 
                     //refresh the listView
-                    if(mListCountries.isEmpty()) {
+                    if (mListCountries.isEmpty()) {
                         mListCountries = null;
                         mListviewCountries.setVisibility(View.GONE);
                         mTxtEmptyListCountries.setVisibility(View.VISIBLE);

@@ -1,15 +1,9 @@
 package com.thingsle.sameer.thingsle.data;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by Sameer on 8/10/2015.
@@ -63,27 +57,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             + COUNTRY_COLUMN_CITY_ID + " INTEGER NOT NULL)";
 
     // SQL statement of the city table creation
-    private static final String SQL_CREATE_TABLE_CITY = "CREATE TABLE "+ CITY_TABLE_NAME + " ( "
-            +CITY_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            +CITY_COLUMN_NAME +" TEXT NOT NULL, "
-            + CITY_COLUMN_LONGITUDE+ " REAL NOT NULL, "
+    private static final String SQL_CREATE_TABLE_CITY = "CREATE TABLE " + CITY_TABLE_NAME + " ( "
+            + CITY_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + CITY_COLUMN_NAME + " TEXT NOT NULL, "
+            + CITY_COLUMN_LONGITUDE + " REAL NOT NULL, "
             + CITY_COLUMN_LATITUDE + " REAL NOT NULL, "
-            +CITY_COLUMN_RATING +" TEXT NOT NULL, "
-            +CITY_COLUMN_THINGS_TO_DO +" TEXT NOT NULL,"
-            +CITY_COLUMN_PLACE_ID + " INTEGER NOT NULL)";
+            + CITY_COLUMN_RATING + " TEXT NOT NULL, "
+            + CITY_COLUMN_THINGS_TO_DO + " TEXT NOT NULL,"
+            + CITY_COLUMN_PLACE_ID + " INTEGER NOT NULL)";
 
 
     // SQL statement of the places table creation
-    private static final String SQL_CREATE_TABLE_PLACES = "CREATE TABLE " + PLACE_TABLE_NAME+" ( "
+    private static final String SQL_CREATE_TABLE_PLACES = "CREATE TABLE " + PLACE_TABLE_NAME + " ( "
             + PLACE_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            +PLACE_COLUMN_NAME +" TEXT NOT NULL, "
-            + PLACE_COLUMN_LONGITUDE+ " REAL NOT NULL, "
-            +PLACE_COLUMN_LATITUDE + " REAL NOT NULL, "
-            +PLACE_COLUMN_RATING +" TEXT NOT NULL, "
-            +PLACE_COLUMN_DESCRIPTION +" TEXT NOT NULL, "
-            +PLACE_COLUMN_DETAILS +" TEXT NOT NULL, "
-            +PLACE_COLUMN_STATUS +" BOOLEAN,"
-            +PLACE_COLUMN_CITY_ID + " INTEGER NOT NULL)";
+            + PLACE_COLUMN_NAME + " TEXT NOT NULL, "
+            + PLACE_COLUMN_LONGITUDE + " REAL NOT NULL, "
+            + PLACE_COLUMN_LATITUDE + " REAL NOT NULL, "
+            + PLACE_COLUMN_RATING + " TEXT NOT NULL, "
+            + PLACE_COLUMN_DESCRIPTION + " TEXT NOT NULL, "
+            + PLACE_COLUMN_DETAILS + " TEXT NOT NULL, "
+            + PLACE_COLUMN_STATUS + " BOOLEAN,"
+            + PLACE_COLUMN_CITY_ID + " INTEGER NOT NULL)";
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -101,7 +95,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.w(TAG,
-                "Upgrading the database from version " + oldVersion + " to "+ newVersion);
+                "Upgrading the database from version " + oldVersion + " to " + newVersion);
         // clear all data
         db.execSQL("DROP TABLE IF EXISTS " + CITY_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + COUNTRY_TABLE_NAME);

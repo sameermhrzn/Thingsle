@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class PlacesCRUD {
 
-    public static final String TAG = "EmployeeDAO";
+    public static final String TAG = "PlacesCrud";
 
     private Context mContext;
 
@@ -54,7 +54,7 @@ public class PlacesCRUD {
         mDatabaseHandler.close();
     }
 
-    public PlacesData createEmploye(String name, double longi, double lat, String rating, String description, String details, Boolean status, int city_id) {
+    public PlacesData createPlace(String name, double longi, double lat, String rating, String description, String details, Boolean status, int city_id) {
         ContentValues values = new ContentValues();
         values.put(DatabaseHandler.PLACE_COLUMN_NAME, name);
         values.put(DatabaseHandler.PLACE_COLUMN_LONGITUDE, longi);
@@ -78,7 +78,7 @@ public class PlacesCRUD {
         mDatabase.delete(DatabaseHandler.PLACE_TABLE_NAME, DatabaseHandler.PLACE_COLUMN_ID + " = " + id, null);
     }
 
-    public List<PlacesData> getAllEmployees() {
+    public List<PlacesData> getAllPlaces() {
         List<PlacesData> listPlaces = new ArrayList<PlacesData>();
 
         Cursor cursor = mDatabase.query(DatabaseHandler.PLACE_TABLE_NAME,

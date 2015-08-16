@@ -16,7 +16,13 @@
         <string name="title_activity_list_cities">ListCItiesActivity</string>
         <string name="title_activity_list_cities_adapter">ListCitiesAdapter</string>
         <string name="title_activity_add_city">AddCity</string>
-    <string name="select_a_country"> Select a country</string>
+
+        <string name="select_a_country"> Select a country</string>
+    <string name="select_a_city"> Select a city</string>
+
+    <string name="app_label">Thingsle</string>
+    <string name="search_hint">Search here</string>
+
 
 
 </resources>
