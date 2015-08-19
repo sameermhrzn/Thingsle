@@ -1,17 +1,21 @@
 package com.thingsle.sameer.thingsle.data;
 
+import java.io.Serializable;
+
 /**
  * Created by Sameer on 8/11/2015.
  */
-public class CountrieData {
+public class CountrieData implements Serializable {
 
+    private static final long serialVersionUID = 2473585606535158765L;
     private long id;
     private String name;
     private double lat;
     private double longi;
-    private CitiesData citiesData;
+   // private CitiesData citiesData;
 
-    public CountrieData(String name, double lat, double longi) {
+    public CountrieData(long i,String name, double lat, double longi) {
+        this.id=i;
         this.name = name;
         this.lat = lat;
         this.longi = longi;
@@ -54,11 +58,11 @@ public class CountrieData {
         this.longi = longi;
     }
 
-    public CitiesData getCitiesData() {
+   /* public CitiesData getCitiesData() {
         return citiesData;
     }
 
     public void setCitiesData(CitiesData citiesData) {
         this.citiesData = citiesData;
-    }
+    }*/
 }

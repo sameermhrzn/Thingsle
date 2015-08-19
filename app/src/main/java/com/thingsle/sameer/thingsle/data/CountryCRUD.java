@@ -22,10 +22,10 @@ public class CountryCRUD {
     private SQLiteDatabase mDatabase;
     private DatabaseHandler mDatabaseHandler;
     private Context mContext;
-    private String[] mAllColumns = { DatabaseHandler.COUNTRY_COLUMN_ID,
+    private String[] mAllColumns = {DatabaseHandler.COUNTRY_COLUMN_ID,
             DatabaseHandler.COUNTRY_COLUMN_NAME, DatabaseHandler.COUNTRY_COLUMN_LATITUDE,
-            DatabaseHandler.COUNTRY_COLUMN_LONGITUDE,
-            DatabaseHandler.COUNTRY_COLUMN_CITY_ID };
+            DatabaseHandler.COUNTRY_COLUMN_LONGITUDE};
+            //DatabaseHandler.COUNTRY_COLUMN_CITY_ID};
 
     public CountryCRUD(Context context) {
         this.mContext = context;
@@ -47,22 +47,31 @@ public class CountryCRUD {
         mDatabaseHandler.close();
     }
 
-    public CountrieData createCountry(String name, double lat, double longi) {
+    public CountrieData createCountry( String name, double lat, double longi) {
         ContentValues values = new ContentValues();
+        //values.put(DatabaseHandler.COUNTRY_COLUMN_NAME, id);
         values.put(DatabaseHandler.COUNTRY_COLUMN_NAME, name);
         values.put(DatabaseHandler.COUNTRY_COLUMN_LATITUDE, lat);
         values.put(DatabaseHandler.CITY_COLUMN_LONGITUDE, longi);
 
-        long insertId = mDatabase
-                .insert(DatabaseHandler.COUNTRY_TABLE_NAME, null, values);
+        long insertId = mDatabase.insert(DatabaseHandler.COUNTRY_TABLE_NAME, null, values);
+
         Cursor cursor = mDatabase.query(DatabaseHandler.COUNTRY_TABLE_NAME, mAllColumns,
                 DatabaseHandler.COUNTRY_COLUMN_ID + " = " + insertId, null, null,
-                null, null);
+                null,null);
         cursor.moveToFirst();
         CountrieData newCountry = cursorToCountry(cursor);
         cursor.close();
         return newCountry;
     }
+
+       /* Cursor cursor = mDatabase.query(DatabaseHandler.COUNTRY_TABLE_NAME, mAllColumns,
+                DatabaseHandler.COUNTRY_COLUMN_ID + " = " + insertId, null, null,
+                null, null);
+        cursor.moveToFirst();
+        CountrieData newCountry = cursorToCountry(cursor);
+        cursor.close();
+        return newCountry;*/
 
     public void deleteCountry(CountrieData countrieData) {
         long id = countrieData.getId();
@@ -104,7 +113,7 @@ public class CountryCRUD {
     public CountrieData getCountryById(long id) {
         Cursor cursor = mDatabase.query(DatabaseHandler.COUNTRY_TABLE_NAME, mAllColumns,
                 DatabaseHandler.COUNTRY_COLUMN_ID + " = ?",
-                new String[] { String.valueOf(id) }, null, null, null);
+                new String[]{String.valueOf(id)}, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
@@ -114,7 +123,7 @@ public class CountryCRUD {
     }
 
     protected CountrieData cursorToCountry(Cursor cursor) {
-CountrieData country = new CountrieData();
+        CountrieData country = new CountrieData();
         country.setId(cursor.getLong(0));
         country.setName(cursor.getString(1));
         country.setLat(cursor.getDouble(2));

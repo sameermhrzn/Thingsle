@@ -3,6 +3,7 @@ package com.thingsle.sameer.thingsle.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
 import android.util.Log;
 
 /**
@@ -53,8 +54,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             + COUNTRY_COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COUNTRY_COLUMN_NAME + " TEXT NOT NULL, "
             + COUNTRY_COLUMN_LATITUDE + " REAL NOT NULL, "
-            + COUNTRY_COLUMN_LONGITUDE + " REAL NOT NULL, "
-            + COUNTRY_COLUMN_CITY_ID + " INTEGER NOT NULL)";
+            + COUNTRY_COLUMN_LONGITUDE + " REAL NOT NULL )";
+           // + COUNTRY_COLUMN_CITY_ID + " INTEGER NOT NULL)";
 
     // SQL statement of the city table creation
     private static final String SQL_CREATE_TABLE_CITY = "CREATE TABLE " + CITY_TABLE_NAME + " ( "
@@ -80,7 +81,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             + PLACE_COLUMN_CITY_ID + " INTEGER NOT NULL)";
 
     public DatabaseHandler(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context,DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override

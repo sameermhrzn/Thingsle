@@ -22,6 +22,10 @@
 
     <string name="app_label">Thingsle</string>
     <string name="search_hint">Search here</string>
+        <string name="title_activity_tab_activity">Tab_activity</string>
+        <string name="title_activity_trending_">Trending_Activit</string>
+        <string name="title_activity_recent__tab">Recent_Tab</string>
+        <string name="title_activity_popular_tab">Popular_tab</string>
 
 
 

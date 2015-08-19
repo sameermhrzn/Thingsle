@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.thingsle.sameer.thingsle.R;
-import com.thingsle.sameer.thingsle.adapter.ListCountriesAdapter;
 import com.thingsle.sameer.thingsle.data.CountrieData;
 import com.thingsle.sameer.thingsle.data.CountryCRUD;
 
@@ -59,24 +58,23 @@ public class AddCountry extends Activity implements View.OnClickListener {
                 Editable strlatitude = mTxtLatitude.getText();
                 Editable strlongitude = mTxtLongitude.getText();
                 if (!TextUtils.isEmpty(countryName) && !TextUtils.isEmpty(strlatitude)
-                        && !TextUtils.isEmpty(strlongitude))
-                         {
-                    // add the company to database
+                        && !TextUtils.isEmpty(strlongitude)) {
+                    // add the country to database
                     double latitude = Double.valueOf(strlatitude.toString());
                     double longitude = Double.valueOf(strlongitude.toString());
-                    CountrieData createdCountry = mCountryCrud.createCountry(
-                            countryName.toString(),
-                            latitude,
-                            longitude);
+                    CountrieData createdCountry =
+                            mCountryCrud.createCountry(countryName.toString(),
+                                    latitude,
+                                    longitude);
 
-                    Log.d(TAG, "added company : " + createdCountry.getName());
+                    Log.d(TAG, "added company : "+ createdCountry.getName());
+                    Log.e(TAG, "added company : " + createdCountry.getName());
                     Intent intent = new Intent();
                     intent.putExtra(ListCountriesActivity.EXTRA_ADDED_COUNTRY, (Serializable) createdCountry);
                     setResult(RESULT_OK, intent);
-                    Toast.makeText(this,"Country Created Successfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Country Created Successfully", Toast.LENGTH_LONG).show();
                     finish();
-                }
-                else {
+                } else {
                     Toast.makeText(this, "One or more fields are empty", Toast.LENGTH_LONG).show();
                 }
                 break;

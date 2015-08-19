@@ -32,7 +32,7 @@ public class ListCountriesActivity extends Activity implements OnItemLongClickLi
     public static final String TAG = "ListCountriesActivity";
 
     public static final int REQUEST_CODE_ADD_COUNTRY = 40;
-    public static final String EXTRA_ADDED_COUNTRY = "extra_key_added_company";
+    public static final String EXTRA_ADDED_COUNTRY = "extra_key_added_country";
 
     private ListView mListviewCountries;
     private TextView mTxtEmptyListCountries;

@@ -1,9 +1,15 @@
 package com.thingsle.sameer.thingsle.data;
 
+import java.io.Serializable;
+
 /**
  * Created by Sameer on 8/11/2015.
  */
-public class PlacesData {
+public class PlacesData implements Serializable{
+
+
+    private static final long serialVersionUID = 4251633808589449219L;
+
     private int place_id ;
     private String name;
     private double longi;

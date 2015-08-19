@@ -34,7 +34,7 @@
         android:layout_centerInParent="true"
         android:layout_margin="4dp"
         android:gravity="center"
-        android:text="No company in the database. create new one by clicking the add button at the top right"
+        android:text="No country in the database. create new one by clicking the add button at the top right"
         android:textAppearance="?android:attr/textAppearance"
         android:textColor="@android:color/darker_gray"
         android:visibility="gone" />
